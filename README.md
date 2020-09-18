@@ -1,4 +1,4 @@
-**Requirements:
+Requirements:
 
 Linux Server  
 Install Docker and start it  

@@ -26,7 +26,7 @@ The configs/ directory will contain the startup-config files for all nodes being
 With an adequately powered server, we can test whether the control plane will sustain a isis l2 network with upto 200x200 nodes. 
 If we build beyond this, the script will have to be modified.  For this example, we are using a 2x2 matrix of nodes (4 total)
 
-The rough target for v1.5 is 4K satellites.
+The rough target for 4K nodes.
 
 
        ^   +-----+     +-----+    +-----+

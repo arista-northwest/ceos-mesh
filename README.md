@@ -1,7 +1,7 @@
 Requirements:
-Linux Server
-Install Docker and start it
-Confirm Docker is working correctly:
+Linux Server  
+Install Docker and start it  
+Confirm Docker is working correctly:  
 
 ```
 [root@server ~]# sudo docker run hello-world
@@ -38,7 +38,6 @@ For more examples and ideas, visit:
 
 Steps to create a container based lab network:
 Import the cEOS-lab docker image ( Note: This will take a few minutes )
-The image can be downloaded from here : https://aristanetworks.egnyte.com/dl/ls77JnQBeq
 
 ```
 [root@server ~]# sudo docker import cEOS-lab.tar.xz ceosimage:latest
@@ -111,39 +110,39 @@ anaconda-ks.cfg  build-mesh.sh  cEOS-lab.tar.xz  config-gen-v0.4.py  configs  de
 Create the mesh
 
 ```
-    [root@server ~]# ./build-mesh.sh
-    afe4f3e20e42efc31a026ef68d619bde7667e1c0a3afccd276f905a7e07e8413
-    0.1
-    0.1
-    1cfe866808b4c1044f8b4ee4e9dcf976839bc9cbf0f92584af9cab4597d96f95
-    0.0
-    0.0
-    a59b4643074e095744d6258167f10d07a55ca877775592fe0b6164091321cb20
-    1.0
-    1.0
-    eb1cc5847ab27e3790100b39c3af19b4717b8cdebd15e2d0927745b16facc509
-    1.1
-    1.1
-    Connecting 0.1:eth2 to 1.1:eth4
-    Connecting 0.1:eth3 to 0.0:eth1
-    Connecting 0.0:eth1 to 0.1:eth3
-    RTNETLINK answers: File exists
-    RTNETLINK answers: File exists
-    Connecting 0.0:eth2 to 1.0:eth4
-    Connecting 1.0:eth1 to 1.1:eth3
-    Connecting 1.0:eth4 to 0.0:eth2
-    RTNETLINK answers: File exists
-    RTNETLINK answers: File exists
-    Connecting 1.1:eth3 to 1.0:eth1
-    RTNETLINK answers: File exists
-    RTNETLINK answers: File exists
-    Connecting 1.1:eth4 to 0.1:eth2
-    RTNETLINK answers: File exists
-    RTNETLINK answers: File exists
-    0.1
-   0.0
-   1.0
-   1.1
+ [root@server ~]# ./build-mesh.sh
+ afe4f3e20e42efc31a026ef68d619bde7667e1c0a3afccd276f905a7e07e8413
+ 0.1
+ 0.1
+ 1cfe866808b4c1044f8b4ee4e9dcf976839bc9cbf0f92584af9cab4597d96f95
+ 0.0
+ 0.0
+ a59b4643074e095744d6258167f10d07a55ca877775592fe0b6164091321cb20
+ 1.0
+ 1.0
+ eb1cc5847ab27e3790100b39c3af19b4717b8cdebd15e2d0927745b16facc509
+ 1.1
+ 1.1
+ Connecting 0.1:eth2 to 1.1:eth4
+ Connecting 0.1:eth3 to 0.0:eth1
+ Connecting 0.0:eth1 to 0.1:eth3
+ RTNETLINK answers: File exists
+ RTNETLINK answers: File exists
+ Connecting 0.0:eth2 to 1.0:eth4
+ Connecting 1.0:eth1 to 1.1:eth3
+ Connecting 1.0:eth4 to 0.0:eth2
+ RTNETLINK answers: File exists
+ RTNETLINK answers: File exists
+ Connecting 1.1:eth3 to 1.0:eth1
+ RTNETLINK answers: File exists
+ RTNETLINK answers: File exists
+ Connecting 1.1:eth4 to 0.1:eth2
+ RTNETLINK answers: File exists
+ RTNETLINK answers: File exists
+ 0.1
+0.0
+1.0
+1.1
    ```
 
 Confirm that the docker containers are created and the config is correctly applied

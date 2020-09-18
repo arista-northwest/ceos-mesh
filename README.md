@@ -1,4 +1,4 @@
-Requirements:
+Requirements:  
 Linux Server  
 Install Docker and start it  
 Confirm Docker is working correctly:  
@@ -37,7 +37,7 @@ For more examples and ideas, visit:
 
 
 Steps to create a container based lab network:
-Import the cEOS-lab docker image ( Note: This will take a few minutes )
+Import the cEOS-lab docker image (Note: This will take a few minutes) (The docker image is sent separately.)
 
 ```
 [root@server ~]# sudo docker import cEOS-lab.tar.xz ceosimage:latest

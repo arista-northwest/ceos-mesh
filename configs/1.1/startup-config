@@ -1,0 +1,62 @@
+hostname 1.1
+!
+interface Port-Channel1
+   no switchport
+   ip address unnumbered Loopback0
+   isis enable ISL
+   isis network point-to-point
+!
+interface Port-Channel2
+   no switchport
+   ip address unnumbered Loopback0
+   isis enable ISL
+   isis network point-to-point
+!
+interface Port-Channel3
+   no switchport
+   ip address unnumbered Loopback0
+   isis enable ISL
+   isis network point-to-point
+!
+interface Port-Channel4
+   no switchport
+   ip address unnumbered Loopback0
+   isis enable ISL
+   isis network point-to-point
+!
+interface Ethernet1
+   channel-group 1 mode on
+!
+interface Ethernet2
+   channel-group 2 mode on
+!
+interface Ethernet3
+   channel-group 3 mode on
+!
+interface Ethernet4
+   channel-group 4 mode on
+!
+service routing protocols model multi-agent
+!
+spanning-tree mode none
+aaa authentication policy local allow-nopassword-remote-login
+aaa authorization exec default local
+!
+ip routing
+mpls ip
+!
+interface Loopback0
+   ip address 192.168.1.1/32
+   node-segment ipv4 index 3
+   isis enable ISL
+!
+router isis ISL
+   net 49.0012.1000.0000.0101.00
+   is-type level-2
+   log-adjacency-changes
+   !
+   address-family ipv4 unicast
+   !
+   segment-routing mpls
+      no shutdown
+!

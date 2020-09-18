@@ -1,4 +1,5 @@
-Requirements:  
+**Requirements:  **
+
 Linux Server  
 Install Docker and start it  
 Confirm Docker is working correctly:  

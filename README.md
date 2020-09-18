@@ -21,7 +21,7 @@
       
       
       build-mesh.sh is a shell script that will contain all the neccessary docker configuration to instantiate and launch the number of nodes.
-delete-mesh.sh is another shell script that will help tear down and delete the nodes (so we dont have to do it manually).
+      delete-mesh.sh is another shell script that will help tear down and delete the nodes (so we dont have to do it manually).
 
       The configs/ directory will contain the startup-config files for all nodes being created so they pick up their config on boot-up.
       

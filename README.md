@@ -3,6 +3,7 @@ Linux Server
 Install Docker and start it
 Confirm Docker is working correctly:
 
+```
 [root@server ~]# sudo docker run hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
@@ -32,23 +33,28 @@ For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 
 [root@server ~]#
-
+```
 
 
 Steps to create a container based lab network:
 Import the cEOS-lab docker image ( Note: This will take a few minutes )
 The image can be downloaded from here : https://aristanetworks.egnyte.com/dl/ls77JnQBeq
 
+```
 [root@server ~]# sudo docker import cEOS-lab.tar.xz ceosimage:latest
+```
 
 Confirm that the image is imported
 
+```
 [root@server ~]# sudo docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 ceosimage           latest              3db8cb8c38e6        49 seconds ago      1.74GB
+```
 
 Execute the config-gen-vx.x.py script 
 
+```
 [root@server ~]# python config-gen-v0.4.py -h
 Usage: python config-gen-v0.4.py [options]
 
@@ -90,54 +96,58 @@ Options:
 
 
 [root@server ~]# python config-gen-v0.4.py -x 2 -y 2
+```
 
 
-
-Confirm that the files are created
+Confirm that the files are created.
+```
 [root@server ~]# ls
 anaconda-ks.cfg  build-mesh.sh  cEOS-lab.tar.xz  config-gen-v0.4.py  configs  dead.letter  delete-mesh.sh
 [root@server ~]# ls configs/
 0.0  0.1  1.0  1.1
 [root@server ~]#
+```
 
 Create the mesh
 
-[root@server ~]# ./build-mesh.sh
-afe4f3e20e42efc31a026ef68d619bde7667e1c0a3afccd276f905a7e07e8413
-0.1
-0.1
-1cfe866808b4c1044f8b4ee4e9dcf976839bc9cbf0f92584af9cab4597d96f95
-0.0
-0.0
-a59b4643074e095744d6258167f10d07a55ca877775592fe0b6164091321cb20
-1.0
-1.0
-eb1cc5847ab27e3790100b39c3af19b4717b8cdebd15e2d0927745b16facc509
-1.1
-1.1
-Connecting 0.1:eth2 to 1.1:eth4
-Connecting 0.1:eth3 to 0.0:eth1
-Connecting 0.0:eth1 to 0.1:eth3
-RTNETLINK answers: File exists
-RTNETLINK answers: File exists
-Connecting 0.0:eth2 to 1.0:eth4
-Connecting 1.0:eth1 to 1.1:eth3
-Connecting 1.0:eth4 to 0.0:eth2
-RTNETLINK answers: File exists
-RTNETLINK answers: File exists
-Connecting 1.1:eth3 to 1.0:eth1
-RTNETLINK answers: File exists
-RTNETLINK answers: File exists
-Connecting 1.1:eth4 to 0.1:eth2
-RTNETLINK answers: File exists
-RTNETLINK answers: File exists
-0.1
-0.0
-1.0
-1.1
+```
+    [root@server ~]# ./build-mesh.sh
+    afe4f3e20e42efc31a026ef68d619bde7667e1c0a3afccd276f905a7e07e8413
+    0.1
+    0.1
+    1cfe866808b4c1044f8b4ee4e9dcf976839bc9cbf0f92584af9cab4597d96f95
+    0.0
+    0.0
+    a59b4643074e095744d6258167f10d07a55ca877775592fe0b6164091321cb20
+    1.0
+    1.0
+    eb1cc5847ab27e3790100b39c3af19b4717b8cdebd15e2d0927745b16facc509
+    1.1
+    1.1
+    Connecting 0.1:eth2 to 1.1:eth4
+    Connecting 0.1:eth3 to 0.0:eth1
+    Connecting 0.0:eth1 to 0.1:eth3
+    RTNETLINK answers: File exists
+    RTNETLINK answers: File exists
+    Connecting 0.0:eth2 to 1.0:eth4
+    Connecting 1.0:eth1 to 1.1:eth3
+    Connecting 1.0:eth4 to 0.0:eth2
+    RTNETLINK answers: File exists
+    RTNETLINK answers: File exists
+    Connecting 1.1:eth3 to 1.0:eth1
+    RTNETLINK answers: File exists
+    RTNETLINK answers: File exists
+    Connecting 1.1:eth4 to 0.1:eth2
+    RTNETLINK answers: File exists
+    RTNETLINK answers: File exists
+    0.1
+   0.0
+   1.0
+   1.1
+   ```
 
 Confirm that the docker containers are created and the config is correctly applied
-
+```
 [root@server ~]# docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS                   PORTS               NAMES
 eb1cc5847ab2        ceosimage:latest    "/sbin/init system..."   About a minute ago   Up About a minute                            1.1
@@ -146,8 +156,10 @@ a59b4643074e        ceosimage:latest    "/sbin/init system..."   About a minute 
 afe4f3e20e42        ceosimage:latest    "/sbin/init system..."   2 minutes ago        Up About a minute                            0.1
 fa1fc537e35a        hello-world         "/hello"                 2 hours ago          Exited (0) 2 hours ago                       modest_swirles
 [root@server ~]#
-
+```
 
 Log into the container
 
+```
 sudo docker exec -it 0.1 Cli
+```
